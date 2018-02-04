@@ -1,13 +1,19 @@
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .byline {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: darkslategrey;
+  border-left: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  border-radius: 0 0 0 10px;
+  padding: 5px;
+  box-shadow: -2px 2px 2px -2px rgba(0,0,0,0.3);
 }
 
 article {
@@ -33,6 +39,24 @@ h1::first-letter{
   font-family: 'Georgia';
   font-size: 32px;
   color: lightgrey;
+}
+footer {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.buttons_group {
+  margin-top: 10px;
+  color: darkslategrey;
+  border-left: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  border-radius: 10px 0 0 0;
+  padding: 5px;
+  box-shadow: -2px 0px -2px 2px rgba(0,0,0,0.3);
+}
+
+button {
+  margin: 2px;
 }
 
   

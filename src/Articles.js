@@ -6,7 +6,7 @@ var articles = [
     title:'first',
     date: new Date(),
     author: 'Jack London',
-    text: 'Some text'
+    text: 'Some text, too long text'
   },
   {
     title: 'second',

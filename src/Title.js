@@ -1,4 +1,5 @@
 import React from 'react';
+import DateHelper from './DateHelper';
 
 class Title extends React.Component {
   constructor(props) {
@@ -6,21 +7,22 @@ class Title extends React.Component {
     this.state = { 
       title: props.title,
       author: props.author,
-      date: props.date
+      isEdit: false
     };
   }
 
   render() {
-    //<time pubdate>{this.state.date.toString()}</time>
-    return (
+    let result = (
       <header>
         <h1>{this.state.title}</h1>
         <div className="byline">
           <address className="author">By {this.state.author}</address>
-          <time>{this.state.date.toLocaleDateString("ru")}</time>
         </div>
       </header>
     );
+    
+    
+    return result;
   }
 }
 

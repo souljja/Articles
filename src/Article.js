@@ -1,5 +1,6 @@
 import React from 'react';
 import Title from "./Title.js";
+import Footer from "./Footer.js";
 
 class Article extends React.Component {
   constructor(props) {
@@ -12,9 +13,9 @@ class Article extends React.Component {
       <div>
         <article>
           <Title title={this.state.article.title}
-            date={this.state.article.date}
             author={this.state.article.author} />
-        {this.state.article.text}</article>
+        {this.state.article.text}
+        <Footer date={this.state.article.date}/></article>
       </div>
     );
   }
