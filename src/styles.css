@@ -24,6 +24,15 @@ article {
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
+section {
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+}
+
 article::first-letter {
   font-family: 'Georgia';
   font-size: 28px;
@@ -46,7 +55,6 @@ footer {
   align-items: flex-end;
 }
 .buttons_group {
-  margin-top: 10px;
   color: darkslategrey;
   border-left: 1px solid lightgray;
   border-top: 1px solid lightgray;

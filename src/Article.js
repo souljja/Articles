@@ -14,7 +14,7 @@ class Article extends React.Component {
         <article>
           <Title title={this.state.article.title}
             author={this.state.article.author} />
-        {this.state.article.text}
+          <section>{this.state.article.text}</section>
         <Footer date={this.state.article.date}/></article>
       </div>
     );
