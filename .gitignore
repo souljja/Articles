@@ -9,7 +9,7 @@
 # production
 /build
 
-createServiceWorker.js
+/src/createServiceWorker.js
 
 # misc
 .DS_Store
