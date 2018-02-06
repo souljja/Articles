@@ -6,12 +6,8 @@ class Title extends React.Component {
     super(props);
     this.state = {
       date: props.date,
-      isEdit: false
+      isEditing: props.isEditing
     };
-  }
-
-  hoverHandler = () => {
-    this.setState({ isEdit: !this.state.isEdit });
   }
 
   render() {
@@ -19,7 +15,7 @@ class Title extends React.Component {
       <footer>
         <time>{DateHelper.formatDate(this.state.date, true)}</time>
         <div className="buttons_group">
-          <button>Edit</button>
+          <button onClick={this.props.handler}>Edit</button>
           <button>Delete</button>
         </div>
       </footer>
