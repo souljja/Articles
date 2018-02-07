@@ -19,11 +19,11 @@ class Article extends React.Component {
   render() {
     if(!this.state.isEditing){
     return (
-      <div>
+      <div className="article_container">
         <article>
           <Title title={this.state.article.title}
             author={this.state.article.author} />
-          <section>{this.state.article.text}</section>
+          <div className="text_section">{this.state.article.text}</div>
         <Footer date={this.state.article.date}
           handler={this.handler}
           isEditing={this.state.isEditing}/></article>
@@ -31,7 +31,7 @@ class Article extends React.Component {
     );
     } else {
       return (
-        <form>
+        <form className="article_container">
         <article>
           <header>
             <h1>
@@ -41,9 +41,9 @@ class Article extends React.Component {
               <address className="author">By {this.state.article.author}</address>
             </div>
           </header>
-            <section>
+            <div className="text_section">
               <textarea value={this.state.article.text}/>
-            </section>
+            </div>
           <footer>
             <time>{DateHelper.formatDate(this.state.article.date, true)}</time>
             <div className="buttons_group">
