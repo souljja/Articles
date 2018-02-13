@@ -1,33 +1,33 @@
-import React from 'react';
+import React from "react";
 import Article from "./Article";
+import { connect } from "react-redux";
 
-var articles = [
-  {
-    title:'first',
-    date: new Date(),
-    author: 'Jack London',
-    text: 'Some text, too long text'
-  },
-  {
-    title: 'second',
-    date: new Date(),
-    author: 'Jack London',
-    text: 'Some text'
+const getVisibleArticles = (articles, filter) => {
+  switch (filter) {
+    case "SHOW_ARCHIVED": {
+      return articles.filter(article => !article.isActive);
+    }
+    case "SHOW_ACTIVE": {
+      return articles.filter(article => article.isActive);
+    }
+    default: {
+      return articles;
+    }
   }
-];
+};
 
+const mapStateToProps = state => {
+  return {
+    articles: getVisibleArticles(state.articles)
+  };
+};
 
 class Articles extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {articles:articles};
-  }
-
   render() {
-    return (this.state.articles.map(article => {
-     return <Article key={article.title} article={article}/>
-    }));
+    return this.props.articles.map(article => {
+      return <Article key={article.title} article={article} />;
+    });
   }
 }
 
-export default Articles;
+export default connect(mapStateToProps, dispatch => ({}))(Articles);

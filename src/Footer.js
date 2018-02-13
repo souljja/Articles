@@ -1,19 +1,12 @@
 import React from 'react';
 import DateHelper from './DateHelper';
+import { connect } from "react-redux";
 
 class Title extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      date: props.date,
-      isEditing: props.isEditing
-    };
-  }
-
   render() {
     let result = (
       <footer>
-        <time>{DateHelper.formatDate(this.state.date, true)}</time>
+        <time>{DateHelper.formatDate(this.props.date, true)}</time>
         <div className="buttons_group">
           <button onClick={this.props.handler}>Edit</button>
           <button>Delete</button>
@@ -26,4 +19,4 @@ class Title extends React.Component {
   }
 }
 
-export default Title;
+export default connect(state => ({}), dispatch => ({}))(Title);

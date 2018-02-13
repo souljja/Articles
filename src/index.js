@@ -1,21 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Articles from './Articles.js';
-import styles from './styles.css';
+import React from "react";
+import { render } from 'react-dom'
+import {Provider} from "react-redux";
+import App from "./App";
+import { createStore } from 'redux'
+import styles from "./styles.css";
+import { reducer } from "./reducers";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {title: "first"};
-  }
+let store = createStore(reducer);
 
-  render() {
-    return (
-      <div className="main_container"> 
-        <Articles />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<App />, document.getElementById('root'));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
