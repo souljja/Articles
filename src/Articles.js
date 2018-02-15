@@ -18,15 +18,17 @@ const getVisibleArticles = (articles, filter) => {
 
 const mapStateToProps = state => {
   return {
-    articles: getVisibleArticles(state.articles)
+    articles: getVisibleArticles(state.articles, state.articleFilter)
   };
 };
 
 class Articles extends React.Component {
   render() {
-    return this.props.articles.map(article => {
+    let list = this.props.articles.map(article => {
       return <Article key={article.title} article={article} />;
     });
+
+    return list;
   }
 }
 

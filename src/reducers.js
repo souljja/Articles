@@ -16,5 +16,12 @@ const initialState = {
 };
 
 export function reducer(state = initialState, action) {
-  return state;
+  switch (action.type) {
+    case "TOGGLE_BUTTONS": {
+      return { ...state, isEditing: action.isEditing };
+    }
+    default: {
+      return state;
+    }
+  }
 }
