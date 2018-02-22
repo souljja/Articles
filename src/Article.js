@@ -5,20 +5,29 @@ import DateHelper from "./DateHelper";
 import { connect } from "react-redux";
 
 class Article extends React.Component {
+  save = newData => {};
+
+  edit = () => {
+    let current = this.props.articles[this.props.id];
+    this.props.onEdit(this.props.id, !current.isEdit);
+  };
+
   render() {
+    let current = this.props.articles[this.props.id];
     return (
       <div className="article_container">
         <article>
           <Title
-            title={this.props.article.title}
-            author={this.props.article.author}
-            isEditing={this.props.isEditing}
+            isEdit={current.isEdit}
+            title={current.title}
+            author={current.author}
+            saveHandler={this.save}
           />
-          <section>{this.props.article.text}</section>
+          <section>{current.text}</section>
           <Footer
-            date={this.props.article.date}
-            handler={this.handler}
-            isEditing={this.props.isEditing}
+            isEdit={current.isEdit}
+            date={current.date}
+            editHandler={this.edit}
           />
         </article>
       </div>
@@ -26,4 +35,13 @@ class Article extends React.Component {
   }
 }
 
-export default connect(state => ({}), dispatch => ({}))(Article);
+export default connect(
+  state => ({
+    articles: state.reducer.articles
+  }),
+  dispatch => ({
+    onEdit: (id, value) => {
+      dispatch({ type: "TOGGLE_BUTTONS", id: id, isEdit: value });
+    }
+  })
+)(Article);

@@ -7,17 +7,13 @@ import MdSave from "react-icons/lib/md/save";
 import MdCancel from "react-icons/lib/md/cancel";
 
 class Title extends React.Component {
-  toggleButtons = () => {
-    this.props.onEdit(!this.props.current.isEditing);
-  };
-
   render() {
     let buttons;
-    if (!this.props.current.isEditing) {
+    if (!this.props.isEdit) {
       buttons = (
         <div className="buttons_group">
           <button
-            onClick={this.toggleButtons}
+            onClick={this.props.editHandler}
             className="btn btn-outline-primary"
           >
             <MdEdit />
@@ -34,7 +30,7 @@ class Title extends React.Component {
             <MdSave />
           </button>
           <button
-            onClick={this.toggleButtons}
+            onClick={this.props.editHandler}
             className="btn btn-outline-primary"
           >
             <MdCancel />
@@ -54,13 +50,4 @@ class Title extends React.Component {
   }
 }
 
-export default connect(
-  state => ({
-    current: state
-  }),
-  dispatch => ({
-    onEdit: value => {
-      dispatch({ type: "TOGGLE_BUTTONS", isEditing: value });
-    }
-  })
-)(Title);
+export default Title;

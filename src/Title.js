@@ -3,14 +3,21 @@ import DateHelper from "./DateHelper";
 import { connect } from "react-redux";
 
 class Title extends React.Component {
+
+  onChange = (event) => {
+    //console.log(event);
+    this.value = event.target.value;
+    console.log(this.value);
+  }
+
   render() {
     let title = null;
-    if (!this.props.isEditing) {
+    if (!this.props.isEdit) {
       title = <h1>{this.props.title}</h1>;
     } else {
       title = (
         <h1>
-          <input value={this.props.title} required />
+          <input defaultValue={this.props.title} ref={(input) => { this.value = input; }}required />
         </h1>
       );
     }
