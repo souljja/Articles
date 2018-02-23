@@ -1,3 +1,11 @@
+.main_container {
+  display: flex;
+  margin: auto;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 1200px;
+}
+
 address {
   margin-bottom: 0px;
 }
@@ -22,6 +30,8 @@ header {
   border-radius: 10px;
   margin: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 600px;
 }
 
 article {

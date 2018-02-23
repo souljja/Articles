@@ -18,7 +18,10 @@ class Title extends React.Component {
           >
             <MdEdit />
           </button>
-          <button className="btn btn-outline-primary">
+          <button
+            onClick={this.props.deleteHandler}
+            className="btn btn-outline-primary"
+          >
             <MdDelete />
           </button>
         </div>
@@ -26,7 +29,10 @@ class Title extends React.Component {
     } else {
       buttons = (
         <div className="buttons_group">
-          <button className="btn btn-outline-primary">
+          <button
+            onClick={this.props.saveHandler}
+            className="btn btn-outline-primary"
+          >
             <MdSave />
           </button>
           <button

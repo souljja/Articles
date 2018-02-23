@@ -11,6 +11,7 @@ class App extends React.Component {
     return (
       <div className="main_container">
         <Articles />
+        <button className="btn btn-outline-primary">Add</button>
       </div>
     );
   }

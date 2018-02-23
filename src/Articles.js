@@ -18,7 +18,10 @@ const getVisibleArticles = (articles, filter) => {
 
 const mapStateToProps = state => {
   return {
-    articles: getVisibleArticles(state.reducer.articles, state.reducer.articleFilter)
+    articles: getVisibleArticles(
+      state.reducer.articles,
+      state.reducer.articleFilter
+    )
   };
 };
 
