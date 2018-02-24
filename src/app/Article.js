@@ -25,8 +25,6 @@ class Article extends React.Component {
     );
     let editForm = null;
 
-    console.log(this.props.articles, current, this.props.id);
-
     if (current && current.isEdit) {
       return <EditForm article={current} editHandler={this.edit} />;
     }

@@ -30,7 +30,6 @@ class Articles extends React.Component {
     let list = this.props.articles.map(article => {
       return <Article key={article.id} id={article.id} />;
     });
-
     return list;
   }
 }

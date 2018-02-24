@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 
 class EditForm extends React.Component {
   componentDidMount() {
-    console.log(this.props.article);
     const initialFormData = {
       title: this.props.article.title,
       text: this.props.article.text
@@ -18,22 +17,35 @@ class EditForm extends React.Component {
 
   render() {
     console.log(this.props);
-    const { handleSubmit} = this.props;
+    const { handleSubmit } = this.props;
 
     const submit = values => {
       this.props.onSubmit(this.props.article.id, values.title, values.text);
     };
     return (
-      <form onSubmit={handleSubmit(submit)}>
-        <Field name="title" component="input" type="text" />
-        <Field name="text" component="textarea" type="text" />
-        <Footer
-          isEdit={this.props.article.isEdit}
-          date={this.props.article.date}
-          editHandler={this.props.editHandler}
-          saveHandler={this.submit}
-        />
-      </form>
+      <div className="article_container">
+        <form onSubmit={handleSubmit(submit)}>
+          <header>
+            <h1>
+              <Field name="title" component="input" type="text" />{" "}
+            </h1>
+            <div className="byline">
+              <address className="author">
+                By {this.props.article.author}
+              </address>
+            </div>
+          </header>
+          <section>
+            <Field name="text" component="textarea" rows="10" type="text" />
+          </section>
+          <Footer
+            isEdit={this.props.article.isEdit}
+            date={this.props.article.date}
+            editHandler={this.props.editHandler}
+            saveHandler={this.submit}
+          />
+        </form>
+      </div>
     );
   }
 }
