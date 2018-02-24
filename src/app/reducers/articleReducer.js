@@ -19,7 +19,7 @@ const initialState = {
   ]
 };
 
-export function reducer(state = initialState, action) {
+export function articleReducer(state = initialState, action) {
   switch (action.type) {
     case "TOGGLE_BUTTONS": {
       return {

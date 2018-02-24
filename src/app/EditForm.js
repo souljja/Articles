@@ -1,7 +1,5 @@
 import React from "react";
-import Title from "./Title.js";
-import Footer from "./Footer.js";
-import DateHelper from "./DateHelper";
+import Footer from "./containers/Footer.js";
 import { Field, reduxForm, initialize } from "redux-form";
 import { connect } from "react-redux";
 

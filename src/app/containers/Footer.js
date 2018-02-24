@@ -1,5 +1,5 @@
 import React from "react";
-import DateHelper from "./DateHelper";
+import DateHelper from "../DateHelper";
 import { connect } from "react-redux";
 import MdEdit from "react-icons/lib/md/edit";
 import MdDelete from "react-icons/lib/md/delete";

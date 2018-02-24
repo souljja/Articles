@@ -1,8 +1,7 @@
 import React from "react";
-import Title from "./Title.js";
-import Footer from "./Footer.js";
+import Title from "./containers/Title.js";
+import Footer from "./containers/Footer.js";
 import EditForm from "./EditForm.js";
-import DateHelper from "./DateHelper";
 import { connect } from "react-redux";
 
 class Article extends React.Component {
