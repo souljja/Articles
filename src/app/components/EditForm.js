@@ -1,7 +1,8 @@
 import React from "react";
-import Footer from "./containers/Footer.js";
+import Footer from "../containers/Footer.js";
 import { Field, reduxForm, initialize } from "redux-form";
 import { connect } from "react-redux";
+import { saveArticle } from "../actions/articleActions.js";
 
 class EditForm extends React.Component {
   componentDidMount() {
@@ -55,7 +56,7 @@ EditForm = connect(
   state => [],
   dispatch => ({
     onSubmit: (id, title, text) => {
-      dispatch({ type: "SAVE_ARTICLE", id: id, title: title, text: text });
+      dispatch(saveArticle(id, title, text));
     }
   })
 )(EditForm);
