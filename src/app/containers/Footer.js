@@ -1,12 +1,11 @@
 import React from "react";
 import DateHelper from "../DateHelper";
-import { connect } from "react-redux";
 import MdEdit from "react-icons/lib/md/edit";
 import MdDelete from "react-icons/lib/md/delete";
 import MdSave from "react-icons/lib/md/save";
 import MdCancel from "react-icons/lib/md/cancel";
 
-class Title extends React.Component {
+class Footer extends React.Component {
   render() {
     let buttons;
     if (!this.props.isEdit) {
@@ -56,4 +55,4 @@ class Title extends React.Component {
   }
 }
 
-export default Title;
+export default Footer;

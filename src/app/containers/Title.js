@@ -1,6 +1,4 @@
 import React from "react";
-import { Field } from "redux-form";
-import { connect } from "react-redux";
 
 class Title extends React.Component {
   render() {
@@ -15,4 +13,4 @@ class Title extends React.Component {
   }
 }
 
-export default connect(state => ({}), dispatch => ({}))(Title);
+export default Title;
