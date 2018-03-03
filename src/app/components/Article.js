@@ -7,10 +7,7 @@ import { toggleButtons, deleteArticle } from "../actions/articleActions.js";
 
 class Article extends React.Component {
   edit = () => {
-    let current = this.props.articles.find(
-      element => element.id === this.props.id
-    );
-    this.props.onEdit(this.props.id, !current.isEdit);
+    this.props.onEdit(this.props.id);
   };
 
   delete = () => {
@@ -23,27 +20,28 @@ class Article extends React.Component {
     );
 
     if (current && current.isEdit) {
-      return <EditForm article={current} editHandler={this.edit} />;
+      return <EditForm form={"editForm"+this.props.id} article={current} editHandler={this.edit} />;
+    } else {
+      return (
+        <div className="article_container">
+          <article>
+            <Title
+              isEdit={current.isEdit}
+              title={current.title}
+              author={current.author}
+              saveHandler={this.save}
+            />
+            <section>{current.text}</section>
+            <Footer
+              isEdit={current.isEdit}
+              date={current.date}
+              editHandler={this.edit}
+              deleteHandler={this.delete}
+            />
+          </article>
+        </div>
+      );
     }
-    return (
-      <div className="article_container">
-        <article>
-          <Title
-            isEdit={current.isEdit}
-            title={current.title}
-            author={current.author}
-            saveHandler={this.save}
-          />
-          <section>{current.text}</section>
-          <Footer
-            isEdit={current.isEdit}
-            date={current.date}
-            editHandler={this.edit}
-            deleteHandler={this.delete}
-          />
-        </article>
-      </div>
-    );
   }
 }
 
@@ -52,8 +50,8 @@ export default connect(
     articles: state.reducer.articles
   }),
   dispatch => ({
-    onEdit: (id, value) => {
-      dispatch(toggleButtons(id, value));
+    onEdit: id => {
+      dispatch(toggleButtons(id));
     },
     onDelete: id => {
       dispatch(deleteArticle(id));

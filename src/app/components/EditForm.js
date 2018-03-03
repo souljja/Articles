@@ -6,16 +6,16 @@ import { saveArticle } from "../actions/articleActions.js";
 
 class EditForm extends React.Component {
   componentDidMount() {
+    console.log(this.props.article);
     const initialFormData = {
       title: this.props.article.title,
       text: this.props.article.text
     };
 
-    this.props.dispatch(initialize("editArticle", initialFormData));
+    this.props.dispatch(initialize(this.props.form, initialFormData));
   }
 
   render() {
-    console.log(this.props);
     const { handleSubmit } = this.props;
 
     const submit = values => {
@@ -26,7 +26,7 @@ class EditForm extends React.Component {
         <form onSubmit={handleSubmit(submit)}>
           <header>
             <h1>
-              <Field name="title" component="input" type="text" />{" "}
+              <Field name="title" component="input" type="text" />
             </h1>
             <div className="byline">
               <address className="author">
@@ -48,12 +48,16 @@ class EditForm extends React.Component {
     );
   }
 }
-EditForm = reduxForm({
-  form: "editArticle" // имя формы в state (state.form.post)
-})(EditForm);
+EditForm = reduxForm({})(EditForm);
 
 EditForm = connect(
-  state => [],
+  (state, props) => ({
+    form: 'editForm' + props.article.id,
+    initialValues: {
+      title: props.article.title,
+      text: props.article.text
+    } 
+  }),
   dispatch => ({
     onSubmit: (id, title, text) => {
       dispatch(saveArticle(id, title, text));

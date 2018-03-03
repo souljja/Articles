@@ -16,7 +16,8 @@ const initialState = {
       text: "Some text",
       isEdit: false
     }
-  ]
+  ],
+  isAddingArticle: false
 };
 
 export function articleReducer(state = initialState, action) {
@@ -26,7 +27,7 @@ export function articleReducer(state = initialState, action) {
         ...state,
         articles: state.articles.map(article => {
           return article.id === action.id
-            ? { ...article, isEdit: action.isEdit }
+            ? { ...article, isEdit: !article.isEdit }
             : article;
         })
       };
@@ -50,6 +51,30 @@ export function articleReducer(state = initialState, action) {
       return {
         ...state,
         articles: state.articles.filter(article => article.id !== action.id)
+      };
+    }
+    case "ADD_ARTICLE": {
+      return {
+        ...state,
+        articles: [
+          ...state.articles,
+          {
+            id: state.articles.length,
+            title: action.title,
+            date: new Date(),
+            author: action.author,
+            text: action.text,
+            isEdit: false
+          }
+        ],
+        isAddingArticle: !state.isAddingArticle
+      };
+    }
+    case "IS_ADDING_ARTICLE": {
+      console.log('here');
+      return {
+        ...state,
+        isAddingArticle: !state.isAddingArticle
       };
     }
     default: {

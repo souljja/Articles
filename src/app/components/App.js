@@ -1,17 +1,21 @@
 import React from "react";
 import Articles from "./Articles.js";
 import MainHeader from "./MainHeader.js";
+import AddForm from "./AddForm.js";
+import { connect } from "react-redux";
 
 class App extends React.Component {
   render() {
     return (
       <div className="main_container">
         <MainHeader />
+        {this.props.isAddingArticle ? <AddForm /> : null}
         <Articles />
-        <button className="btn btn-outline-primary">Add</button>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(state => ({
+  isAddingArticle: state.reducer.isAddingArticle
+}), dispatch => ({}))(App);
