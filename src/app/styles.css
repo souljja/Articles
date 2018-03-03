@@ -11,6 +11,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
 .byline {
@@ -42,6 +44,8 @@ section {
   padding-bottom: 10px;
   border-bottom: 1px solid lightgray;
   border-top: 1px solid lightgray;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
 article::first-letter {
@@ -130,7 +134,7 @@ form section {
   padding: 10px 0;
 }
 
-.add-form_container{
+.add-form_container {
   display: flex;
   justify-content: space-around;
 }
