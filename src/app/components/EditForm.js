@@ -1,20 +1,10 @@
 import React from "react";
 import Footer from "../containers/Footer.js";
-import { Field, reduxForm, initialize } from "redux-form";
+import { Field, reduxForm} from "redux-form";
 import { connect } from "react-redux";
 import { saveArticle } from "../actions/articleActions.js";
 
 class EditForm extends React.Component {
-  componentDidMount() {
-    console.log(this.props.article);
-    const initialFormData = {
-      title: this.props.article.title,
-      text: this.props.article.text
-    };
-
-    this.props.dispatch(initialize(this.props.form, initialFormData));
-  }
-
   render() {
     const { handleSubmit } = this.props;
 

@@ -20,7 +20,7 @@ class Article extends React.Component {
     );
 
     if (current && current.isEdit) {
-      return <EditForm form={"editForm"+this.props.id} article={current} editHandler={this.edit} />;
+      return <EditForm article={current} editHandler={this.edit} />;
     } else {
       return (
         <div className="article_container">

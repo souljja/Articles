@@ -1,9 +1,5 @@
 .main_container {
-  display: flex;
-  flex-wrap: wrap;
   margin: auto;
-  align-items: flex-start;
-  justify-content: space-between;
   max-width: 1200px;
 }
 
@@ -115,7 +111,8 @@ form section {
 .main_header {
   display: flex;
   align-items: center;
-  width: 1200px;
+  justify-content: space-between;
+  max-width: 1180px;
   padding-left: 25px;
   padding-right: 25px;
 
@@ -131,4 +128,17 @@ form section {
 
 .main_header h1 {
   padding: 10px 0;
+}
+
+.add-form_container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.articles_container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: flex-start;
+  justify-content: space-between;
 }
