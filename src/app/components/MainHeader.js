@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import SearchBar from "./SearchBar.js";
 import { isAddingArticle } from "../actions/articleActions.js";
 
 class MainHeader extends React.Component {
@@ -15,7 +16,10 @@ class MainHeader extends React.Component {
     return (
       <header className="main_header">
         <h1>Diary</h1>
-        {button}
+        <div className="header_controls">
+          <SearchBar />
+          {button}
+        </div>
       </header>
     );
   }
