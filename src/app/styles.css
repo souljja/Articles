@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Lobster");
 .main_container {
   margin: auto;
   max-width: 1200px;
 }
 
 address {
+  font-family: "Lobster", cursive;
   margin-bottom: 0px;
 }
 
@@ -28,9 +30,10 @@ header {
   border: 1px solid lightgray;
   border-radius: 10px;
   margin: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   max-width: 575px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   width: 575px;
+  font-family: "Times New Roman";
 }
 
 article,
@@ -60,7 +63,6 @@ h1 {
 
 h1::first-letter {
   text-transform: capitalize;
-  font-family: "Georgia";
   color: lightgrey;
 }
 footer {
@@ -78,6 +80,7 @@ footer {
 }
 
 time {
+  font-family: "Lobster", cursive;
   color: darkslategrey;
   font-style: italic;
 }
@@ -125,13 +128,17 @@ form section {
   border-right: 1px solid lightgray;
 
   border-radius: 0 0 10px 10px;
-  box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
   margin: 0 10px 10px 10px;
 }
 
 .main_header h1 {
+   font-family: "Lobster", cursive;
   padding: 10px 0;
+  text-shadow: -1px 0 1px white, 0 -1px 1px white, 0 1px 1px white,
+    1px 0 1px white, 0 0 8px white, 0 0 8px white, 0 0 8px white,
+    2px 2px 3px black;
 }
 
 .add-form_container {

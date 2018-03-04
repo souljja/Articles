@@ -10,9 +10,7 @@ class App extends React.Component {
       <div className="main_container">
         <MainHeader />
         {this.props.isAddingArticle ? <AddForm /> : null}
-        <div className="articles_container">
-          <Articles />
-        </div>
+        <Articles />
       </div>
     );
   }

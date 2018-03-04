@@ -17,14 +17,14 @@ class AddForm extends React.Component {
           <form onSubmit={handleSubmit(addArticle)}>
             <header>
               <h1>
-                <Field name="title" component="input" type="text" />
+                <Field name="title" component="input" type="text" required spellcheck="true"/>
               </h1>
               <div className="byline">
                 <address className="author">By Anonymous</address>
               </div>
             </header>
             <section>
-              <Field name="text" component="textarea" rows="10" type="text" />
+              <Field name="text" component="textarea" rows="10" type="text" required spellcheck="true"/>
             </section>
             <Footer
               isEdit={this.props.isAddingArticle}

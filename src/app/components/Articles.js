@@ -27,10 +27,11 @@ const mapStateToProps = state => {
 
 class Articles extends React.Component {
   render() {
-    let list = this.props.articles.map(article => {
+    let list = this.props.articles.map((article, index) => {
+      console.log(index);
       return <Article key={article.id} id={article.id} />;
     });
-    return list;
+    return <div className="articles_container">{list}</div>;
   }
 }
 
